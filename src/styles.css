@@ -1,0 +1,84 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css";
+
+.registration-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px; /* Added padding */
+  min-width: 400px;
+}
+
+.registration-form {
+  position: relative;
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem; /* Spacing between fields */
+  overflow: hidden; /* To contain the pseudo-element */
+}
+
+.registration-form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 0, 0, 0.1),
+    transparent
+  );
+  border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .registration-form {
+    box-shadow: none;
+    padding: 1rem;
+  }
+
+  .registration-form::before {
+    background: none; /* Remove gradient border on smaller screens */
+  }
+}
+
+.p-field {
+  margin-bottom: 1rem; /* Spacing out fields */
+}
+
+.p-center {
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.logo img {
+  width: auto;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.title {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+

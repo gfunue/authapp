@@ -1,0 +1,67 @@
+<p-toast></p-toast>
+<div class="registration-form-container">
+  <div class="registration-form p-fluid">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="header">
+        <!-- <div class="logo">
+          <img src="assets/logo/fplogo.png" alt="Logo" />
+        </div> -->
+        <div class="title">Secure Authentication Blog</div>
+      </div>
+      <div class="p-fluid">
+        <!-- Username -->
+        <div class="p-field">
+          <input
+            formControlName="username"
+            id="username"
+            type="text"
+            pInputText
+            placeholder="Username"
+          />
+          <div
+            *ngIf="
+              loginForm.get('username')?.touched &&
+              loginForm.get('username')?.invalid
+            "
+          >
+            <small
+              class="p-error"
+              *ngIf="loginForm.get('username')?.errors?.['required']"
+            >
+              Username is required to login.
+            </small>
+          </div>
+        </div>
+        <!-- Password -->
+        <div class="p-field">
+          <input
+            formControlName="password"
+            id="password"
+            type="password"
+            pInputText
+            placeholder="Password"
+          />
+          <div
+            *ngIf="
+              loginForm.get('password')?.touched &&
+              loginForm.get('password')?.invalid
+            "
+          >
+            <small
+              class="p-error"
+              *ngIf="loginForm.get('password')?.errors?.['required']"
+            >
+              Password is required to login.
+            </small>
+          </div>
+        </div>
+        <!-- LogIn Button -->
+        <button pButton type="submit" label="LogIn" [disabled]="loginForm.invalid"></button>
+        <p class="p-center mt-3 p-progress-spinner-circle">
+          Don't have an account?
+          <a routerLink="/register" routerLinkActive="active">Register</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,158 @@
+<p-toast></p-toast>
+<div class="registration-form-container">
+  <div class="registration-form p-fluid">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div class="p-fluid">
+        <div class="header">
+          <div class="title">Secure Authentication Blog</div>
+        </div>
+
+        <!-- Username -->
+        <div class="p-field">
+          <input
+            formControlName="username"
+            id="username"
+            type="text"
+            pInputText
+            placeholder="Username"
+          />
+          <div
+            *ngIf="
+              registrationForm.get('username')?.touched &&
+              registrationForm.get('username')?.invalid
+            "
+          >
+            <small
+              class="p-error"
+              *ngIf="registrationForm.get('username')?.errors?.['required']"
+            >
+              Username is required.
+            </small>
+            <small
+              class="p-error"
+              *ngIf="registrationForm.get('username')?.errors?.['minlength']"
+            >
+              Username must be at least 2 characters long.
+            </small>
+            <small
+              class="p-error"
+              *ngIf="registrationForm.get('username')?.errors?.['maxlength']"
+            >
+              Username cannot be more than 20 characters long.
+            </small>
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="p-field">
+          <input
+            formControlName="password"
+            id="password"
+            type="password"
+            pInputText
+            placeholder="Password"
+          />
+          <div
+            *ngIf="
+              registrationForm.get('password')?.touched &&
+              registrationForm.get('password')?.invalid
+            "
+          >
+            <small
+              class="p-error"
+              *ngIf="registrationForm.get('password')?.errors?.['required']"
+            >
+              Password is required.
+            </small>
+            <small
+              class="p-error"
+              *ngIf="registrationForm.get('password')?.errors?.['minlength']"
+            >
+              Password must be at least 8 characters long.
+            </small>
+            <small
+              class="p-error"
+              *ngIf="registrationForm.get('password')?.errors?.['maxlength']"
+            >
+              Password cannot be more than 20 characters long.
+            </small>
+          </div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="p-field">
+          <input
+            formControlName="confirmPassword"
+            id="confirmPassword"
+            type="password"
+            pInputText
+            placeholder="Confirm Password"
+          />
+          <div
+            *ngIf="
+              registrationForm.get('confirmPassword')?.touched &&
+              registrationForm.get('confirmPassword')?.invalid
+            "
+          >
+            <small
+              class="p-error"
+              *ngIf="registrationForm.get('confirmPassword')?.errors?.['required']"
+            >
+              Confirm Password is required.
+            </small>
+            <small
+              class="p-error"
+              *ngIf="registrationForm.get('confirmPassword')?.errors?.['isMatching']"
+            >
+              Passwords must match.
+            </small>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="p-field">
+          <input
+            formControlName="email"
+            id="email"
+            type="email"
+            pInputText
+            placeholder="Email"
+          />
+          <div
+            *ngIf="
+              registrationForm.get('email')?.touched &&
+              registrationForm.get('email')?.invalid
+            "
+          >
+            <small
+              class="p-error"
+              *ngIf="registrationForm.get('email')?.errors?.['required']"
+            >
+              Email is required.
+            </small>
+            <small
+              class="p-error"
+              *ngIf="registrationForm.get('email')?.errors?.['maxlength']"
+            >
+              email cannot be more than 50 characters long.
+            </small>
+          </div>
+        </div>
+
+        <button
+          pButton
+          type="submit"
+          label="Register"
+          [disabled]="registrationForm.invalid"
+        ></button>
+
+        <!-- Login Link -->
+        <p class="p-center mt-3">
+          Already have an account?
+          <a routerLink="/login" routerLinkActive="active">Login</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
+
