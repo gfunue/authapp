@@ -1,0 +1,38 @@
+.p-menubar {
+  background-color: #007ad9;
+  color: white;
+}
+
+.nav-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.nav-links a:hover {
+  background-color: #005ea6;
+}
+
+.p-input-icon-left .pi {
+  color: #333;
+}
+
+.p-inputtext {
+  width: 180px;
+}
+
+@media screen and (max-width: 768px) {
+  .p-inputtext {
+    width: 100px;
+  }
+}
