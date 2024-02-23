@@ -1,5 +1,5 @@
 export interface AuthenticationResponse {
-    accessToken: string;
+    token: string;
     message?: string;
     userId?: number;
 }

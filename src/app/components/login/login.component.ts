@@ -63,7 +63,7 @@ export class LoginComponent {
               life: 5000,
             });
           this.loginForm.reset();
-          localStorage.setItem('token', response.data.accessToken);
+          localStorage.setItem('token', response.data.token);
           setTimeout(() => this.router.navigate(['/register']), 5000);
         },
         error: (error) => {

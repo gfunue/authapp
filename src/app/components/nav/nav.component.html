@@ -1,9 +1,11 @@
+<p-toast></p-toast>
 <p-menubar>
   <div class="p-grid">
     <div class="p-col">
       <ul class="nav-links">
         <li><a routerLink="/home">Home</a></li>
         <li><a routerLink="/about">About</a></li>
+        <li><a (click)="onLogout()">Logout</a></li>
       </ul>
     </div>
     <div class="p-col">

@@ -65,4 +65,11 @@ export class UserserviceService {
         })
       );
   }
+
+  logout(): Observable<any> {
+    let token = localStorage.getItem('token');
+    return this.http.delete(`${environment.userBaseUrl}/logout`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  }
 }
