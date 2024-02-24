@@ -122,10 +122,10 @@ export class RegistrationComponent implements OnInit {
           severity: 'success',
           summary: 'Success',
           detail: response.message || 'Unknown error occurred',
-          life: 5000,
+          life: 3000,
         });
         this.registrationForm.reset();
-        setTimeout(() => this.router.navigate(['/login']), 5000);
+        setTimeout(() => this.router.navigate(['/']), 3000);
       },
       error: (error) => {
         this.messageService.add({
