@@ -34,7 +34,7 @@ export class NavComponent {
     this.userService.logout().subscribe({
       next: () => {
         localStorage.removeItem('token');
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
       },
       error: (error) => {
         this.messageService.add({

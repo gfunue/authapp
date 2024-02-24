@@ -64,7 +64,7 @@ export class LoginComponent {
             });
           this.loginForm.reset();
           localStorage.setItem('token', response.data.token);
-          setTimeout(() => this.router.navigate(['/register']), 5000);
+          setTimeout(() => this.router.navigate(['/blog']), 5000);
         },
         error: (error) => {
           this.messageService.add({

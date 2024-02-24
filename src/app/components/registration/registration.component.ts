@@ -125,7 +125,7 @@ export class RegistrationComponent implements OnInit {
           life: 3000,
         });
         this.registrationForm.reset();
-        setTimeout(() => this.router.navigate(['/login']), 3000);
+        setTimeout(() => this.router.navigate(['/']), 3000);
       },
       error: (error) => {
         this.messageService.add({

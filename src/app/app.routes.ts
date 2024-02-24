@@ -5,7 +5,7 @@ import { NavComponent } from './components/nav/nav.component';
 
 export const routes: Routes = [
     { path: 'register', component: RegistrationComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'nav', component: NavComponent}
+    { path: 'nav', component: NavComponent },
+    { path: '', component: LoginComponent },
     //{ path: '**', component: PageNotFoundComponent }
 ];
