@@ -1,0 +1,20 @@
+<div class="mb-8">
+  <div class="width">
+    <p-card *ngIf="blog">
+      <div class="p-card-header custom-header">
+          <span class="card-title text-900 font-bold capitalize">{{ blog.title }}</span>
+          <span class="card-date">{{ blog.creationDate | date: 'mediumDate' }} &nbsp;</span>
+        </div>
+      <p class="indented">{{ blog.intro }}</p>
+      <div *ngFor="let paragraph of blog.content.split('###')">
+        <p class="indented" *ngIf="paragraph">{{ paragraph }}</p>
+      </div>
+      <p class="indented">{{ blog.conclusion }}</p>
+      <div class="p-card-footer">
+        <button pButton type="button" label="Delete" (click)="deleteBlog()" icon="pi pi-trash" class="p-button-danger"></button>
+        <button pButton type="button" label="Update" (click)="updateBlog()" icon="pi pi-pencil" class="p-button-success"></button>
+      </div>
+    </p-card>
+  </div>
+</div>
+

@@ -2,10 +2,16 @@ import { Component } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, RouterLink, RouterLinkActive, Router } from '@angular/router';
+import {
+  RouterOutlet,
+  RouterLink,
+  RouterLinkActive,
+  Router,
+} from '@angular/router';
 import { UserserviceService } from '../../service/userservice.service';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-nav',
@@ -24,11 +30,31 @@ import { ToastModule } from 'primeng/toast';
   styleUrl: './nav.component.css',
 })
 export class NavComponent {
+  items: MenuItem[];
   constructor(
     private userService: UserserviceService,
     private messageService: MessageService,
     private router: Router
-  ) {}
+  ) {
+    this.items = [
+      {
+        label: 'Home',
+        routerLink: ['/home'],
+      },
+      {
+        label: 'New Blog',
+        routerLink: ['/blog'],
+      },
+      {
+        label: 'About',
+        routerLink: ['/about'],
+      },
+      {
+        label: 'Logout',
+        command: () => this.onLogout(),
+      },
+    ];
+  }
 
   onLogout() {
     this.userService.logout().subscribe({
