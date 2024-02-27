@@ -244,8 +244,8 @@ flex-direction:column;
 
     .page2{
     flex-direction: column;
-    height: 150vh;
-    margin-bottom: 150px;
+    height: 260vw;
+    margin-bottom: 250px;
     }
 }
 @media screen and (max-width: 980px) {
