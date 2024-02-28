@@ -1,3 +1,8 @@
+
+.bg{
+background-color: #363333;
+  color: white;
+
 * {
   margin: 0;
   padding: 0;
@@ -256,4 +261,5 @@ input {
   display: none;
  }
   
+
 }

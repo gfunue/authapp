@@ -1,0 +1,107 @@
+<p-toast></p-toast>
+<div class="mb-8">
+  <div class="width">
+<p-card header="Update Blog Post">
+  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+    <div class="p-fluid">
+      <div class="p-field" *ngIf="imageUrl">
+        <img [src]="imageUrl" alt="Blog Image" class="blog-image">
+      </div>
+      <div class="p-field">
+        <p-fileUpload
+          name="imageFile"
+          mode="basic"
+          chooseLabel="Upload Image"
+          accept="image/*"
+          [maxFileSize]="1048576"
+          (onSelect)="onFileSelected($event)"
+        ></p-fileUpload>
+      </div>
+      <div class="p-field">
+        <input
+          id="title"
+          type="text"
+          pInputText
+          formControlName="title"
+          placeholder="Blog Title"
+        />
+        <small
+          *ngIf="
+            blogForm.get('title')?.errors &&
+            (blogForm.get('title')?.dirty || blogForm.get('title')?.touched)
+          "
+          class="p-error"
+          >Title is required and must be at most 100 characters.</small
+        >
+      </div>
+
+      <div class="p-field">
+        <label for="intro">Introduction</label>
+        <textarea
+          id="intro"
+          rows="3"
+          pInputTextarea
+          formControlName="intro"
+          [autoResize]="true"
+        ></textarea>
+        <small
+          *ngIf="
+            blogForm.get('intro')?.errors &&
+            (blogForm.get('intro')?.dirty || blogForm.get('intro')?.touched)
+          "
+          class="p-error"
+          >Introduction is required and must be at most 1000 characters.</small
+        >
+      </div>
+
+      <div class="p-field">
+        <label for="content">Content</label>
+        <textarea
+          id="content"
+          rows="6"
+          pInputTextarea
+          formControlName="content"
+          [autoResize]="true"
+        ></textarea>
+        <small
+          *ngIf="
+            blogForm.get('content')?.errors &&
+            (blogForm.get('content')?.dirty || blogForm.get('content')?.touched)
+          "
+          class="p-error"
+          >Content is required and must be at most 10000 characters.</small
+        >
+      </div>
+
+      <div class="p-field">
+        <label for="conclusion">Conclusion</label>
+        <textarea
+          id="conclusion"
+          rows="3"
+          pInputTextarea
+          formControlName="conclusion"
+          [autoResize]="true"
+        ></textarea>
+        <small
+          *ngIf="
+            blogForm.get('conclusion')?.errors &&
+            (blogForm.get('conclusion')?.dirty ||
+              blogForm.get('conclusion')?.touched)
+          "
+          class="p-error"
+          >Conclusion is required and must be at most 1000 characters.</small
+        >
+      </div>
+
+      <button
+        pButton
+        type="submit"
+        label="Submit"
+        [disabled]="!blogForm.valid"
+      ></button>
+    </div>
+  </form>
+</p-card>
+</div>
+</div>
+

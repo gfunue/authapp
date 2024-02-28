@@ -3,6 +3,11 @@
 @import "primeicons/primeicons.css";
 @import "primeflex/primeflex.css";
 
+body{
+margin: 0;
+/* max-width: 1800px; */
+}
+
 .registration-form-container {
   display: flex;
   justify-content: center;
@@ -82,3 +87,14 @@
   font-weight: bold;
 }
 
+.width{
+max-width: 1000px;
+margin: auto;
+padding-top: 10px;
+}
+
+.indented {
+  text-indent: 2em;
+  text-align: justify;
+  text-justify: inter-word;
+}

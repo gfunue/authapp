@@ -1,0 +1,40 @@
+.blog-card .card-content {
+    display: flex;
+    align-items: flex-start; /* Align items to the start to handle varying heights gracefully */
+}
+
+.blog-image-container {
+    width: 200px; /* Fixed width for the image container */
+    flex: 0 0 200px; /* Flex shorthand to prevent growing and shrinking, but setting the base size */
+    margin-right: 16px; /* Add some margin between the image and the text */
+}
+
+.blog-image {
+    width: 100%; /* Makes the image responsive within its container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Adjust as necessary to fit your design */
+}
+
+.blog-details {
+    flex-grow: 1; /* Takes the remaining space */
+    /* Padding-left is not needed anymore since margin-right on the image container does the spacing */
+}
+
+.grid{
+}
+
+/* Responsive adjustments for smaller devices */
+@media (max-width: 768px) {
+    .blog-card .card-content {
+        flex-direction: column; /* Stack on top of each other on smaller screens */
+    }
+    .blog-image-container {
+        width: 100%; /* Allow the image to take full width on smaller screens */
+        flex: 0 0 auto; /* Reset flex settings for small screens */
+        margin-right: 0; /* Reset margin for smaller screens */
+        order: -1; /* Ensure that the image is above the text */
+    }
+    .blog-details {
+        /* No need to set order for details as they naturally follow the image */
+    }
+}
