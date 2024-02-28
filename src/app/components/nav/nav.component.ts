@@ -12,6 +12,7 @@ import { UserserviceService } from '../../service/userservice.service';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { MenuItem } from 'primeng/api';
+import { BlogService } from '../../service/blog.service';
 
 @Component({
   selector: 'app-nav',
@@ -31,10 +32,12 @@ import { MenuItem } from 'primeng/api';
 })
 export class NavComponent {
   items: MenuItem[];
+  filteredItems: MenuItem[];
   constructor(
     private userService: UserserviceService,
     private messageService: MessageService,
-    private router: Router
+    private router: Router,
+    private blogService: BlogService,
   ) {
     this.items = [
       {
@@ -54,6 +57,13 @@ export class NavComponent {
         command: () => this.onLogout(),
       },
     ];
+
+    this.filteredItems = [...this.items];
+  }
+
+  filterItems(event: any) {
+    const query = event.target.value.toLowerCase();
+    this.blogService.setSearchQuery(query);
   }
 
   onLogout() {

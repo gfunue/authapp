@@ -1,4 +1,4 @@
-<div class="mb-8">
+<!-- <div class="mb-8">
   <div class="grid">
     <div *ngFor="let blog of blogs" class="col-12 md:col-6">
       <p-card class="blog-card" (click)="onReadMore(blog)">
@@ -23,4 +23,30 @@
     [pageLinkSize]="3"
     (onPageChange)="onPageChange($event)"
   ></p-paginator>
+</div> -->
+
+<div class="mb-8 grid">
+    <div *ngFor="let blog of blogs" class="col-12 md:col-6">
+        <p-card class="blog-card" (click)="onReadMore(blog)">
+            <div class="p-card-header custom-header">
+                <span class="card-title text-900 font-bold capitalize">{{ blog.title }}</span>
+                <span class="card-date">{{ blog.creationDate | date: 'mediumDate' }} &nbsp;</span>
+            </div>
+            <div class="card-content border-round">
+                <div class="blog-image-container" *ngIf="blog.imageUrl">
+                    <img [src]="blog.imageUrl" alt="Blog Image" class="border-round blog-image">
+                </div>
+                <div class="blog-details">
+                    <p class="blog-intro indented">{{ blog.intro }}</p>
+                </div>
+            </div>
+        </p-card>
+    </div>
 </div>
+<p-paginator
+  [rows]="pageSize"
+  [totalRecords]="totalBlogs"
+  [pageLinkSize]="3"
+  (onPageChange)="onPageChange($event)"
+></p-paginator>
+

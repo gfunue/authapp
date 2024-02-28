@@ -1,75 +1,40 @@
-.blog-grid {
-  margin-top: 1rem;
+.blog-card .card-content {
+    display: flex;
+    align-items: flex-start; /* Align items to the start to handle varying heights gracefully */
 }
 
-.blog-grid .p-col-12 {
-  padding: 0.5rem;
-}
-
-.size{
-  min-height: 150px;
-  max-height: 150px;
-}
-
-.blog-card {
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  max-width: 800px;
-    margin: 0 auto;
-}
-
-.blog-card:hover {
-  transform: translateY(-0.1rem);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.blog-intro {
-  padding: 1rem;
-}
-
-.card-content {
-  display: flex;
-  align-items: center;
+.blog-image-container {
+    width: 200px; /* Fixed width for the image container */
+    flex: 0 0 200px; /* Flex shorthand to prevent growing and shrinking, but setting the base size */
+    margin-right: 16px; /* Add some margin between the image and the text */
 }
 
 .blog-image {
-  flex: 0 0 auto; /* Do not grow or shrink */
-  margin-right: 1rem;
-}
-
-.blog-image img {
-  width: 100px; /* Adjust the width as needed */
-  height: auto;
+    width: 100%; /* Makes the image responsive within its container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Adjust as necessary to fit your design */
 }
 
 .blog-details {
-  flex: 1; /* Take up the remaining space */
+    flex-grow: 1; /* Takes the remaining space */
+    /* Padding-left is not needed anymore since margin-right on the image container does the spacing */
 }
 
-.custom-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
+.grid{
 }
 
-
-
-.card-title {
-  flex-grow: 1;
-}
-
+/* Responsive adjustments for smaller devices */
 @media (max-width: 768px) {
-  .custom-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .card-date {
-    margin-bottom: 0.5rem;
-  }
+    .blog-card .card-content {
+        flex-direction: column; /* Stack on top of each other on smaller screens */
+    }
+    .blog-image-container {
+        width: 100%; /* Allow the image to take full width on smaller screens */
+        flex: 0 0 auto; /* Reset flex settings for small screens */
+        margin-right: 0; /* Reset margin for smaller screens */
+        order: -1; /* Ensure that the image is above the text */
+    }
+    .blog-details {
+        /* No need to set order for details as they naturally follow the image */
+    }
 }
-

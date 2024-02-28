@@ -3,7 +3,7 @@
     <ng-template pTemplate="end" class="">
       <span class="p-input-icon-left">
         <i class="pi pi-search"></i>
-        <input pInputText type="text" placeholder="Search" />
+        <input pInputText type="text" placeholder="Search" (input)="filterItems($event)" />
       </span>
     </ng-template>
 </p-menubar>

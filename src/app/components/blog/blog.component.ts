@@ -59,9 +59,9 @@ export class BlogComponent implements OnInit {
   private initializeForm() {
     this.blogForm = this.fb.group({
       title: ['', [Validators.required, Validators.maxLength(100)]],
-      intro: ['', [Validators.required, Validators.maxLength(2000)]],
-      content: ['', [Validators.required, Validators.maxLength(20000)]],
-      conclusion: ['', [Validators.required, Validators.maxLength(2000)]],
+      intro: ['', [Validators.required, Validators.maxLength(500)]],
+      content: ['', [Validators.required, Validators.maxLength(6000)]],
+      conclusion: ['', [Validators.required, Validators.maxLength(500)]],
     });
   }
 

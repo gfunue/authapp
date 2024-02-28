@@ -9,18 +9,26 @@ import { catchError } from 'rxjs/operators';
 import { Blog } from '../model/blog';
 import { environment } from '../environment/environment';
 import { HttpResponse } from '../model/HttpResponse';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BlogService {
   private blogBaseUrl = environment.blogBaseUrl;
+  private searchQuerySource = new BehaviorSubject<string>('');
+  searchQuery$ = this.searchQuerySource.asObservable();
+
   constructor(private http: HttpClient) {}
+
+  setSearchQuery(query: string) {
+    this.searchQuerySource.next(query);
+  }
 
   createBlog(formData: FormData): Observable<HttpResponse<{ blogId: number }>> {
     return this.http
       .post<HttpResponse<{ blogId: number }>>(
-        this.blogBaseUrl + '/create',
+        this.blogBaseUrl + '/create-blog',
         formData
       )
       .pipe(
@@ -41,7 +49,7 @@ export class BlogService {
       .set('size', size.toString())
       .set('sort', sort);
 
-    return this.http.get<HttpResponse<any>>(this.blogBaseUrl + '/all', {
+    return this.http.get<HttpResponse<any>>(this.blogBaseUrl + '/all-blogs', {
       params,
     });
   }

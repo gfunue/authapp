@@ -44,9 +44,15 @@ export class HomeComponent implements OnInit {
   pageSize = 6;
   totalBlogs = 0;
   sort = 'title,asc';
+  searchQuery = '';
 
   ngOnInit(): void {
     this.loadBlogs();
+
+    this.blogService.searchQuery$.subscribe((query) => {
+      this.searchQuery = query;
+      this.loadBlogs();
+    });
   }
 
   loadBlogs() {
@@ -54,8 +60,10 @@ export class HomeComponent implements OnInit {
       .getAllBlogs(this.currentPage, this.pageSize, this.sort)
       .subscribe({
         next: (response: HttpResponse<any>) => {
-          this.blogs = response.data.blogs.content;
-          this.totalBlogs = response.data.blogs.totalElements;
+          this.blogs = response.data.blogs.content.filter((blog: { title: string; }) =>
+            blog.title.toLowerCase().includes(this.searchQuery)
+          );
+          this.totalBlogs = this.blogs.length;
           this.messageService.add({
             severity: 'success',
             summary: 'Success',
