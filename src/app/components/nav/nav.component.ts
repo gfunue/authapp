@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { MenubarModule } from 'primeng/menubar';
-import { InputTextModule } from 'primeng/inputtext';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { UserserviceService } from '../../service/userservice.service';
@@ -11,8 +9,6 @@ import { ToastModule } from 'primeng/toast';
   selector: 'app-nav',
   standalone: true,
   imports: [
-    MenubarModule,
-    InputTextModule,
     CommonModule,
     RouterOutlet,
     RouterLink,
@@ -46,4 +42,22 @@ export class NavComponent {
       },
     });
   }
+
+  isSearchActive: boolean = false;
+  isMobileMenuOpen: boolean = false;
+
+  toggleSearch(): void {
+    this.isSearchActive = !this.isSearchActive;
+  }
+  toggleMobileMenu(): void {
+    console.log("running");
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    console.log(this.isMobileMenuOpen);
+  }
+  
+  navigateTo(route: string) {
+    this.router.navigateByUrl(route);
+  }
+
+
 }
