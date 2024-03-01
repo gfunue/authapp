@@ -1,52 +1,68 @@
-<!-- <div class="mb-8">
-  <div class="grid">
-    <div *ngFor="let blog of blogs" class="col-12 md:col-6">
-      <p-card class="blog-card" (click)="onReadMore(blog)">
-        <div class="p-card-header custom-header">
-          <span class="card-title text-900 font-bold capitalize">{{ blog.title }}</span>
-          <span class="card-date">{{ blog.creationDate | date: 'mediumDate' }} &nbsp;</span>
-        </div>
-        <div class="card-content size">
-          <div class="blog-image" *ngIf="blog.imageUrl">
-            <img [src]="blog.imageUrl" alt="Blog Image">
-          </div>
-          <div class="blog-details">
-            <p class="blog-intro indented">{{ blog.intro }}</p>
-          </div>
-        </div>
-      </p-card>
-    </div>
-  </div>
-  <p-paginator
-    [rows]="pageSize"
-    [totalRecords]="totalBlogs"
-    [pageLinkSize]="3"
-    (onPageChange)="onPageChange($event)"
-  ></p-paginator>
-</div> -->
+<div class="page" id="page1">
+  <div class="home-container">
+    <div id="left">
+      <h1>Safe</h1>
+      <h1>Inspiring</h1>
+      <h1>
+        <span
+          ><img
+            class="circle-img"
+            src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z2lybHxlbnwwfHwwfHx8Mg%3D%3D"
+            alt=""
+        /></span>
+        <span
+          ><img
+            class="circle-img"
+            src="https://images.unsplash.com/photo-1631947430066-48c30d57b943?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2lybHxlbnwwfHwwfHx8Mg%3D%3D"
+            alt=""
+        /></span>
+        <span
+          ><img
+            class="circle-img"
+            src="https://images.unsplash.com/photo-1635488640163-e5f6782cda6e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGdpcmx8ZW58MHx8MHx8fDI%3D"
+            alt=""
+        /></span>
 
-<div class="mb-8 grid">
-    <div *ngFor="let blog of blogs" class="col-12 md:col-6">
-        <p-card class="blog-card" (click)="onReadMore(blog)">
-            <div class="p-card-header custom-header">
-                <span class="card-title text-900 font-bold capitalize">{{ blog.title }}</span>
-                <span class="card-date">{{ blog.creationDate | date: 'mediumDate' }} &nbsp;</span>
-            </div>
-            <div class="card-content border-round">
-                <div class="blog-image-container" *ngIf="blog.imageUrl">
-                    <img [src]="blog.imageUrl" alt="Blog Image" class="border-round blog-image">
-                </div>
-                <div class="blog-details">
-                    <p class="blog-intro indented">{{ blog.intro }}</p>
-                </div>
-            </div>
-        </p-card>
+        Express
+      </h1>
+    </div>
+    <div id="right">
+      <div class="container">
+        <p>
+          Sharing secure <span class="typed-text"></span
+          ><span class="cursor">&nbsp;</span>
+        </p>
+      </div>
+      <div class="get-started">
+        <button (click)="navigateTo('/login')">Get Started</button>
+      </div>
+    </div>
+    <div></div>
+  </div>
+</div>
+<div class="page2">
+    <div routerLink="/register" class="box">
+      <h2 >Welcome to Our Blogging Platform</h2>
+      <p>
+        Explore our secure platform for sharing your thoughts, experiences, and
+        insights with the world. Join our community of passionate bloggers
+        today!
+      </p>
+    </div>
+    <div routerLink="/register" class="box">
+      <h2>Start Writing Your Blog</h2>
+      <p>
+        Create an account to unlock full access to our blogging tools and
+        features. Share your stories and engage with readers from around the
+        globe.
+      </p>
+    </div>
+    <div routerLink="/register" class="box">
+      <h2>Connect with Like-Minded Writers</h2>
+      <p>
+        Discover new perspectives and connect with fellow writers who share your
+        interests. Our platform provides a supportive environment for
+        collaboration and networking.
+      </p>
     </div>
 </div>
-<p-paginator
-  [rows]="pageSize"
-  [totalRecords]="totalBlogs"
-  [pageLinkSize]="3"
-  (onPageChange)="onPageChange($event)"
-></p-paginator>
-

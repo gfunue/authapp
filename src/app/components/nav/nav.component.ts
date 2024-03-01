@@ -11,6 +11,8 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { MenuItem } from 'primeng/api';
 import { BlogService } from '../../service/blog.service';
+import { MenubarModule } from 'primeng/menubar';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-nav',
@@ -21,6 +23,8 @@ import { BlogService } from '../../service/blog.service';
     RouterLink,
     RouterLinkActive,
     ToastModule,
+    MenubarModule,
+    InputTextModule,
   ],
   providers: [MessageService],
   templateUrl: './nav.component.html',
@@ -33,12 +37,12 @@ export class NavComponent {
     private userService: UserserviceService,
     private messageService: MessageService,
     private router: Router,
-    private blogService: BlogService,
+    private blogService: BlogService
   ) {
     this.items = [
       {
         label: 'Home',
-        routerLink: ['/home'],
+        routerLink: ['/blog-home'],
       },
       {
         label: 'New Blog',
@@ -78,26 +82,4 @@ export class NavComponent {
       },
     });
   }
-
 }
-
-
-  isSearchActive: boolean = false;
-  isMobileMenuOpen: boolean = false;
-
-  toggleSearch(): void {
-    this.isSearchActive = !this.isSearchActive;
-  }
-  toggleMobileMenu(): void {
-    console.log("running");
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
-    console.log(this.isMobileMenuOpen);
-  }
-  
-  navigateTo(route: string) {
-    this.router.navigateByUrl(route);
-  }
-
-
-}
-

@@ -1,0 +1,43 @@
+
+.maxWidth {
+    max-width: 1700px;
+}
+
+.custom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    width: 50%;
+    max-width: 300px;
+}
+
+.header-right {
+    width: 50%;
+    text-align: center;
+}
+
+.blog-image-container {
+    width: 100%;
+    overflow: hidden;
+    
+}
+
+.blog-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-width: 400px;
+}
+
+.card-title {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.card-date {
+    display: block;
+    text-align: right;
+}

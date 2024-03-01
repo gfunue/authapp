@@ -23,13 +23,6 @@ import { FooterComponent } from './components/footer/footer.component';
     FooterComponent,
     CommonModule,
   ],
-
-import { FooterComponent } from './components/footer/footer.component';
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, HttpClientModule ,NavComponent, FooterComponent],
-
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -42,10 +35,10 @@ export class AppComponent {
   constructor(private router: Router) {
     router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.isNavVisible = !['/', '/register'].includes(
+        this.isNavVisible = !['/', '/register', '/login'].includes(
           event.urlAfterRedirects
         );
-        this.isFooterVisible = !['/', '/register'].includes(
+        this.isFooterVisible = !['/', '/register', '/login'].includes(
           event.urlAfterRedirects
         );
       }

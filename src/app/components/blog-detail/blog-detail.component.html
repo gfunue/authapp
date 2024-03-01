@@ -1,20 +1,48 @@
 <div class="mb-8">
   <div class="width">
-    <p-card *ngIf="blog">
-      <div class="p-card-header custom-header">
-          <span class="card-title text-900 font-bold capitalize">{{ blog.title }}</span>
-          <span class="card-date">{{ blog.creationDate | date: 'mediumDate' }} &nbsp;</span>
+    <p-card *ngIf="blog" styleClass="blog-card p-0 m-0 bg-white">
+      <div class="p-card-header custom-header flex m-0 p-0">
+        <div class="header-left">
+          <div class="blog-image-container" *ngIf="blog.imageUrl">
+            <img
+              [src]="blog.imageUrl"
+              alt="Blog Image"
+              class="border-round blog-image"
+            />
+          </div>
         </div>
+        <div class="header-right">
+          <span class="card-title text-900 font-bold capitalize">{{
+            blog.title
+          }}</span>
+          <span class="card-date mt-4 text-400 font-italic text-xs"
+            >{{ blog.creationDate | date : "mediumDate" }} &nbsp;</span
+          >
+        </div>
+      </div>
       <p class="indented">{{ blog.intro }}</p>
       <div *ngFor="let paragraph of blog.content.split('###')">
         <p class="indented" *ngIf="paragraph">{{ paragraph }}</p>
       </div>
       <p class="indented">{{ blog.conclusion }}</p>
-      <div class="p-card-footer">
-        <button pButton type="button" label="Delete" (click)="deleteBlog()" icon="pi pi-trash" class="p-button-danger"></button>
-        <button pButton type="button" label="Update" (click)="updateBlog()" icon="pi pi-pencil" class="p-button-success"></button>
+      <div class="p-card-footer m-0 p">
+        <button
+          pButton
+          type="button"
+          label="Delete"
+          (click)="deleteBlog()"
+          icon="pi pi-trash"
+          class="p-button-danger"
+        ></button>
+        <button
+          pButton
+          type="button"
+          label="Update"
+          (click)="updateBlog()"
+          icon="pi pi-pencil"
+          class="p-button-success"
+        ></button>
       </div>
     </p-card>
   </div>
 </div>
-

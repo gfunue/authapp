@@ -1,0 +1,50 @@
+<div class="about-page p-card p-m-4 mb-8">
+  <h1 class="p-text-center">About Our Project</h1>
+  <p class="p-mb-3">
+    This blog is a capstone project for our bachelor's degree in Computer
+    Science and Software Development and Security. The course is a senior-level
+    program that allows us to work in teams to design, develop, test, implement,
+    and document a semester-long project in a current computer science
+    application area. Our blog is an example of a reusable and scalable
+    application developed using the most current technologies and approaches.
+  </p>
+  <h2 class="p-text-center">Our Team</h2>
+  <div class="p-grid p-justify-center">
+    <div class="p-col-12 p-md-4" *ngFor="let member of teamMembers">
+      <div class="p-card text-center p-shadow-3 p-2">
+        <i class="pi pi-user p-mb-2 ml-2" style="font-size: 2em"></i>
+        <h3 class="ml-2">{{ member.name }}</h3>
+        <p class="ml-2">{{ member.role }}</p>
+      </div>
+    </div>
+  </div>
+  <h2 class="p-text-center">Course Overview</h2>
+  <p>
+    <strong>Welcome to CMSC 495!</strong><br />
+    This course emphasizes teamwork, allowing us to simulate a working project
+    environment. We have the opportunity to bring candidate projects for
+    consideration or seek ideas from our instructor.
+  </p>
+  <p><strong>Course Learning Outcomes:</strong></p>
+  <ul>
+    <li>
+      Conduct self-evaluations and peer reviews to improve collaborative
+      projects.
+    </li>
+    <li>
+      Create user or technical documentation for an IT system or application.
+    </li>
+    <li>
+      Implement IT solutions that comply with specifications, requirements,
+      standards, and guidelines.
+    </li>
+    <li>
+      Research, plan, conduct, and complete a collaborative, challenging,
+      computer-related project in compliance with schedule deadlines.
+    </li>
+  </ul>
+  <p class="p-mt-3">
+    We have worked together to design, develop, and deploy this blog application
+    as part of our academic curriculum. We hope you enjoy exploring our work!
+  </p>
+</div>

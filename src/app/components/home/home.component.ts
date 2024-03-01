@@ -1,91 +1,65 @@
-import { Component, OnInit} from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { MessageService } from 'primeng/api';
-import { Blog } from '../../model/blog';
-import { BlogService } from '../../service/blog.service';
-import { CommonModule } from '@angular/common';
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { FileUploadModule } from 'primeng/fileupload';
-import { InputTextModule } from 'primeng/inputtext';
-import { InputTextareaModule } from 'primeng/inputtextarea';
-import { ToastModule } from 'primeng/toast';
-import { HttpResponse } from '../../model/HttpResponse';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { PaginatorModule } from 'primeng/paginator';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    ToastModule,
-    ButtonModule,
-    InputTextareaModule,
-    FileUploadModule,
-    CardModule,
-    ReactiveFormsModule,
-    CommonModule,
-    InputTextModule,
-    PaginatorModule,
+    RouterModule
   ],
-  providers: [MessageService],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
-  constructor(
-    private blogService: BlogService,
-    private messageService: MessageService,
-    private fb: FormBuilder,
-    private router: Router
-  ) {}
-  blogs: any[] = [];
-  currentPage = 0;
-  pageSize = 6;
-  totalBlogs = 0;
-  sort = 'title,asc';
-  searchQuery = '';
+export class HomeComponent implements AfterViewInit {
 
-  ngOnInit(): void {
-    this.loadBlogs();
+  constructor(private elementRef: ElementRef, private router: Router) { }
 
-    this.blogService.searchQuery$.subscribe((query) => {
-      this.searchQuery = query;
-      this.loadBlogs();
+  ngAfterViewInit() {
+    const typedTextSpan = this.elementRef.nativeElement.querySelector(".typed-text");
+    const cursorSpan = this.elementRef.nativeElement.querySelector(".cursor");
+
+    const textArray = ["insights", "stories", "experiences", "ideas"];
+    const typingDelay = 200;
+    const erasingDelay = 100;
+    const newTextDelay = 2000;
+    let textArrayIndex = 0;
+    let charIndex = 0;
+
+    function type() {
+      if (charIndex < textArray[textArrayIndex].length) {
+        if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, typingDelay);
+      }
+      else {
+        cursorSpan.classList.remove("typing");
+        setTimeout(erase, newTextDelay);
+      }
+    }
+
+    function erase() {
+      if (charIndex > 0) {
+        if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, erasingDelay);
+      }
+      else {
+        cursorSpan.classList.remove("typing");
+        textArrayIndex++;
+        if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+        setTimeout(type, typingDelay + 1100);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      if (textArray.length) setTimeout(type, newTextDelay + 250);
     });
   }
 
-  loadBlogs() {
-    this.blogService
-      .getAllBlogs(this.currentPage, this.pageSize, this.sort)
-      .subscribe({
-        next: (response: HttpResponse<any>) => {
-          this.blogs = response.data.blogs.content.filter((blog: { title: string; }) =>
-            blog.title.toLowerCase().includes(this.searchQuery)
-          );
-          this.totalBlogs = this.blogs.length;
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Success',
-            detail: response.message || 'Blogs loaded successfully',
-          });
-        },
-        error: (error) => {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: error.error.message || 'Error loading blogs',
-          });
-        },
-      });
-  }
-
-  onReadMore(blog: Blog) {
-    this.router.navigate(['/blog', blog.id]);
-  }
-
-  onPageChange(event: any) {
-    this.currentPage = event.page;
-    this.loadBlogs();
+  navigateTo(route: string) {
+    this.router.navigateByUrl(route);
   }
 }

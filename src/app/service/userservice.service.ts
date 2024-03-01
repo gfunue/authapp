@@ -6,15 +6,18 @@ import { UserRegistration } from '../model/registration';
 import { HttpResponse } from '../model/HttpResponse';
 import { UserLogin } from '../model/login';
 import { AuthenticationResponse } from '../model/authResponse';
-import { Blog } from '../model/blog';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserserviceService {
   private userBaseUrl = environment.userBaseUrl;
- 
   constructor(private http: HttpClient) {}
+
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
 
   registerUser(
     userData: UserRegistration
@@ -74,5 +77,4 @@ export class UserserviceService {
       headers: { Authorization: `Bearer ${token}` },
     });
   }
-
 }
