@@ -45,12 +45,10 @@ export class BlogComponent implements OnInit {
   imageToUpload: File | null = null;
   blogForm!: FormGroup;
   blogs: any[] = [];
- 
 
   ngOnInit(): void {
     this.initializeForm();
   }
-
 
   onReadMore(blog: Blog) {
     this.router.navigate(['/blog', blog.id]);
@@ -100,7 +98,7 @@ export class BlogComponent implements OnInit {
           life: 3000,
         });
         this.blogForm.reset();
-        this.router.navigate(['/home']);
+        this.router.navigate(['/blog-home']);
       },
       error: (error) => {
         this.messageService.add({

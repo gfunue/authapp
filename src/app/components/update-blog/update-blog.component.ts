@@ -115,7 +115,6 @@ export class UpdateBlogComponent implements OnInit {
             summary: 'Error',
             detail: error.error.message || 'Failed to update blog',
           });
-          console.error('Error updating blog:', error);
         },
       });
     }

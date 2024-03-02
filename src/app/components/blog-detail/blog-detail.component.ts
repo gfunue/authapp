@@ -5,11 +5,12 @@ import { BlogService } from '../../service/blog.service';
 import { Blog } from '../../model/blog';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-blog-detail',
   standalone: true,
-  imports: [CardModule, CommonModule, ButtonModule],
+  imports: [CardModule, CommonModule, ButtonModule, ToastModule],
   templateUrl: './blog-detail.component.html',
   styleUrl: './blog-detail.component.css',
 })
@@ -41,8 +42,8 @@ export class BlogDetailComponent implements OnInit {
   deleteBlog() {
     if (this.blog && this.blog.id) {
       this.blogService.deleteBlog(this.blog.id).subscribe({
-        next: (response) => {
-          this.router.navigate(['/home']);
+        next: () => {
+          this.router.navigate(['/blog-home']);
         },
         error: (error) => {
           console.error('Error deleting blog:', error);
