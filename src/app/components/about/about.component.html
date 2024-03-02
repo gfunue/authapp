@@ -1,5 +1,5 @@
 <div class="about-page p-card p-m-4 mb-8">
-  <h1 class="p-text-center">About Our Project</h1>
+  <h1 class="text-center">About Our Project</h1>
   <p class="p-mb-3">
     This blog is a capstone project for our bachelor's degree in Computer
     Science and Software Development and Security. The course is a senior-level
@@ -8,17 +8,9 @@
     application area. Our blog is an example of a reusable and scalable
     application developed using the most current technologies and approaches.
   </p>
-  <h2 class="p-text-center">Our Team</h2>
-  <div class="p-grid p-justify-center">
-    <div class="p-col-12 p-md-4" *ngFor="let member of teamMembers">
-      <div class="p-card text-center p-shadow-3 p-2">
-        <i class="pi pi-user p-mb-2 ml-2" style="font-size: 2em"></i>
-        <h3 class="ml-2">{{ member.name }}</h3>
-        <p class="ml-2">{{ member.role }}</p>
-      </div>
-    </div>
-  </div>
-  <h2 class="p-text-center">Course Overview</h2>
+  
+
+  <h2 class="text-center">Course Overview</h2>
   <p>
     <strong>Welcome to CMSC 495!</strong><br />
     This course emphasizes teamwork, allowing us to simulate a working project
@@ -47,4 +39,33 @@
     We have worked together to design, develop, and deploy this blog application
     as part of our academic curriculum. We hope you enjoy exploring our work!
   </p>
+
+  <h2 class="text-center">Our Team</h2>
+  <div class="p-grid p-justify-center">
+    <div class="p-col-12 p-md-4" *ngFor="let member of teamMembers">
+      <div class="p-card p-shadow-3 p-2">
+        <i class="pi pi-user p-mb-2 ml-2" style="font-size: 2em"></i>
+        <h3 class="ml-2">{{ member.name }}</h3>
+        <p class="ml-2">{{ member.role }}</p>
+        <div *ngIf="member.responsibilities" class="ml-2">
+          <h4>Responsibilities:</h4>
+          <ul>
+            <li *ngFor="let responsibility of member.responsibilities">
+              {{ responsibility }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="p-col-12">
+  <div class="p-card p-shadow-3 p-2">
+    <h3 class="ml-2 text-center">Cross-functional Collaboration</h3>
+    <ul class="ml-2">
+      <li><strong>Regular Joint Meetings:</strong> Scheduled weekly to discuss progress, address challenges, and make collective decisions.</li>
+      <li><strong>Decision-Making Framework:</strong> Decisions are made based on consensus among key stakeholders, with the Project Manager having the final say in case of disagreements.</li>
+      <li><strong>Communication Channels:</strong> Utilizes a combination of regular meetings, email updates, and a project management tool (Discord) for ongoing communication and collaboration.</li>
+    </ul>
+  </div>
+</div>
 </div>

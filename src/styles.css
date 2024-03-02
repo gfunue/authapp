@@ -6,15 +6,19 @@
 
 body{
 margin: 0;
+background-color: rgb(190, 216, 207);
 /* max-width: 1800px; */
 }
+
+.nav{
+background-color: brown;}
 
 .registration-form-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 20px; /* Added padding */
+  padding: 20px;
   min-width: 400px;
 }
 
@@ -26,8 +30,8 @@ margin: 0;
   max-width: 600px;
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 1rem; /* Spacing between fields */
-  overflow: hidden; /* To contain the pseudo-element */
+  margin: 1rem;
+  overflow: hidden;
 }
 
 .registration-form::before {
@@ -54,12 +58,12 @@ margin: 0;
   }
 
   .registration-form::before {
-    background: none; /* Remove gradient border on smaller screens */
+    background: none;
   }
 }
 
 .p-field {
-  margin-bottom: 1rem; /* Spacing out fields */
+  margin-bottom: 1rem;
 }
 
 .p-center {

@@ -29,7 +29,6 @@ export class UserserviceService {
       )
       .pipe(
         map((response) => {
-          console.log('Mapped Response:', response);
           if (response.message) {
             return response;
           } else {
@@ -55,7 +54,6 @@ export class UserserviceService {
       )
       .pipe(
         map((response) => {
-          console.log('Mapped Response:', response);
           if (response.message) {
             return response;
           } else {

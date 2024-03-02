@@ -7,3 +7,28 @@
 .p-card {
   margin-bottom: 20px;
 }
+
+.about-page {
+  line-height: 1.6;
+}
+
+.about-page p, .about-page li {
+  margin-bottom: 0.5rem;
+  text-align: justify;
+}
+
+.about-page h1, .about-page h2, .about-page h3 {
+  margin-bottom: 1rem;
+}
+
+.about-page ul {
+  padding-left: 1.2rem;
+}
+
+.p-card {
+  padding: 1.5rem;
+}
+
+.pi-user {
+  margin-bottom: 0.5rem;
+}
