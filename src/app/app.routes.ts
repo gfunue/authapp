@@ -7,7 +7,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { BlogDetailComponent } from './components/blog-detail/blog-detail.component';
 import { BlogHomeComponent } from './components/blog-home/blog-home.component';
 import { UpdateBlogComponent } from './components/update-blog/update-blog.component';
-import { ErrorpageComponent } from './components/errorpage/errorpage.component';
+import { ErrorpageComponent } from '../errorpage/errorpage.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 

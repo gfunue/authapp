@@ -63,12 +63,7 @@ export class BlogHomeComponent implements OnInit {
           this.blogs = response.data.blogs.content.filter((blog: { title: string; }) =>
             blog.title.toLowerCase().includes(this.searchQuery)
           );
-          this.totalBlogs = this.blogs.length;
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Success',
-            detail: response.message || 'Blogs loaded successfully',
-          });
+          this.totalBlogs = response.data.blogs.totalElements;
         },
         error: (error) => {
           this.messageService.add({

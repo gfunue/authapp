@@ -6,11 +6,13 @@ import { Blog } from '../../model/blog';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-blog-detail',
   standalone: true,
   imports: [CardModule, CommonModule, ButtonModule, ToastModule],
+  providers: [MessageService],
   templateUrl: './blog-detail.component.html',
   styleUrl: './blog-detail.component.css',
 })
